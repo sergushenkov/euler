@@ -1,7 +1,3 @@
-from contracts import contract
-
-
-@contract
 def prime_factors(x):
     """
     12 -> 1, 2, 2, 3
@@ -42,7 +38,6 @@ def prime_factors(x):
     return factors
 
 
-@contract
 def smallest_multiply(factors1, factors2):
     """
     (1, 2, 2, 3) + (1, 2, 5) -> (1, 2, 2, 3, 5)
@@ -69,7 +64,6 @@ def smallest_multiply(factors1, factors2):
     return factors1
 
 
-@contract
 def factors(x):
     """
     12 -> 1, 2, 2, 3
@@ -109,7 +103,25 @@ def factors(x):
     return factors
 
 
-@contract
+def dividors(x):
+    """
+    возвращает список делителей числа
+    >>> dividors(220)
+    [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110]
+    >>> dividors(17)
+    [1]
+    """
+    res = [1]
+    i = 2
+    while i < x/i:
+        if x%i == 0:
+            res.append(i)
+            if i != x // i:
+                res.append(x // i)
+        i += 1
+    return sorted(res)
+
+
 def collatz(x):
     """
     13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1 (len = 10)
